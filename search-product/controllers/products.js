@@ -1,4 +1,3 @@
-const Product = require('../models/productModel');
 const db = require('../db/index');
 
 exports.getProducts = async(req, res, next)=> {
