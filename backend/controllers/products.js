@@ -3,7 +3,7 @@ const db = require('../db/index');
 exports.getProducts = async(req, res, next)=> {
     try {
         const { location, category, searchTerm } = req.body;
-        const result = await db.query(`SELECT * FROM products WHERE locationserved && $1  OR productcategory ILIKE $2 OR productname ILIKE $3`,
+        const result = await db.query(`SELECT * FROM products WHERE locationserved && $1 AND productcategory ILIKE $2 AND productname ILIKE $3`,
             [[location], `%${category}%`, `%${searchTerm}%`]
         );
         const products = result.rows;
