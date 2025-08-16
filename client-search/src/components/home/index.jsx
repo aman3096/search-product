@@ -18,7 +18,7 @@ const Home = () => {
         <h1>Welcome to Styli eCommerce first draft</h1>
             <div className="card">
                 <input placeholder='Enter a product to search' value ={product} onChange={(e)=>{setProduct(e.target.value)}} />
-                <button onClick={navigateToSearchPage}>Search</button>
+                <button disabled={!product.length} onClick={navigateToSearchPage}>Search</button>
             </div>
       </React.Fragment>
     );

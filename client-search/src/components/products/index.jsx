@@ -39,7 +39,24 @@ const Products = () => {
         <h1>Search Results for: "{query || '...'}"</h1>
         {error && <p className="error">{error}</p>}
         <p>Found {products.length} products.</p>
-        <pre>{JSON.stringify(products, null, 2)}</pre>
+
+        <div className="product-list">
+            {products.length > 0 && !products.message ? (
+
+                products.map((product) => (
+                    <div key={product?.productid} className="product-item">
+                        <img src={product.productimage} alt={product.productname} className="product-image" />
+                        <h2>{product.productname}</h2>
+                        <p>Category: {product.productcategory}</p>
+                        <p>Location: {product.locationserved.join(', ')}</p>
+                        <p>Price: ${product.rate}</p>
+                    </div>
+                ))
+            ) : (
+                <p>No products found.</p>
+            )}
+        </div>
+       {JSON.stringify(products, null, 2)}
         </div> 
   );
 }
