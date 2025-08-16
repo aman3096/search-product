@@ -20,7 +20,7 @@ const Products = () => {
 
             try {
                 setError(null); // Reset error on new search
-                const result = await axios.post('http://localhost:3002/api/products/search', {
+                const result = await axios.post('http://localhost:3002/api/search/', {
                     location: 'Bangalore',
                     category: 'Electronics',
                     searchTerm: query
