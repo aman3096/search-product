@@ -15,3 +15,18 @@
     border-radius: 8px;
     width: 40%;
 }
+.search-button {
+    background-color: #303134;
+    border: 1px solid #303134;
+    color: #e8eaed;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+}
