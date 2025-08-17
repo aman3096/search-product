@@ -1,5 +1,17 @@
 .product-image {
-    width: 30%;
+    width: 40%;
     height: auto;
     border-radius: 8px;
+}
+.product-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+}
+.product-item {
+    gap: 1.5em;
+    border: 1px solid #eaeaea;
+    padding: 1.5em;
+    border-radius: 8px;
+    width: 40%;
 }

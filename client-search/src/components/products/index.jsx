@@ -48,7 +48,6 @@ const Products = () => {
                         <img src={product.productimage} alt={product.productname} className="product-image" />
                         <h2>{product.productname}</h2>
                         <p>Category: {product.productcategory}</p>
-                        <p>Location: {product.locationserved.join(', ')}</p>
                         <p>Price: ${product.rate}</p>
                     </div>
                 ))
@@ -56,7 +55,6 @@ const Products = () => {
                 <p>No products found.</p>
             )}
         </div>
-       {JSON.stringify(products, null, 2)}
         </div> 
   );
 }
