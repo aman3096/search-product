@@ -10,6 +10,7 @@ const Products = () => {
     const [error, setError] = useState(null);
     const query = searchParams.get('query');
     const [searchTerm, setSearchTerm] = useState(query);
+    const [sortOrder, setSortOrder] = useState(''); // State for sort order
     // Get the 'query' parameter from the URL search params
     
     const fetchProducts = async () => {
@@ -36,6 +37,19 @@ const Products = () => {
         fetchProducts();
     },[query])
 
+const handleChange = (e) => {
+    const value = e.target.value;
+    setSortOrder(value);
+        if (value=== 'Price desc') {
+            setProducts((prevProducts) => [...prevProducts].sort((a, b) => b.rate - a.rate));
+        } else if (value === 'Price asc') {
+            setProducts((prevProducts) => [...prevProducts].sort((a, b) => a.rate - b.rate));
+        } else if (value === 'Name asc') {
+            setProducts((prevProducts) => [...prevProducts].sort((a, b) => a.productname.localeCompare(b.productname)));
+        } else if (value === 'Name desc') {
+            setProducts((prevProducts) => [...prevProducts].sort((a, b) => b.productname.localeCompare(a.productname)));
+        }
+    };
   return (
       <div>
         <input value={searchTerm}
@@ -47,15 +61,27 @@ const Products = () => {
 
         <div className="product-list">
             {products.length > 0 && !products.message ? (
-                <div className="product-grid">
-                    {products.map((product) => (
-                        <div key={product?.productid} className="product-item">
-                            <img src={product.productimage} alt={product.productname} className="product-image" />
-                            <h2>{product.productname}</h2>
-                            <p>Category: {product.productcategory}</p>
-                            <p>Price: ${product.rate}</p>
+                <div >
+                    <select className="sort-by" onChange={handleChange}>
+                        <option value="">Sort By</option>
+                        <option value="Price desc" >Price: High to Low</option>
+                        <option value="Price asc">Price: Low to High</option>
+                        <option value="Name asc">Name: A-Z</option>
+                        <option value="Name desc">Name: Z-A</option>
+                    </select>
+                    <div className="product-count">
+                            {products.length} products found
                         </div>
-                    ))}
+                    <div className="product-grid">
+                        {products.map((product) => (
+                            <div key={product?.productid} className="product-item">
+                                <img src={product.productimage} alt={product.productname} className="product-image" />
+                                <h2>{product.productname}</h2>
+                                <p>Category: {product.productcategory}</p>
+                                <p>Price: ${product.rate}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             ) : (
                 <p>No products found.</p>
