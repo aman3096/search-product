@@ -15,6 +15,10 @@
     border-radius: 8px;
     width: 40%;
 }
+.product-grid {
+    display: flex;
+    gap: 1.5em;
+}
 .search-button {
     background-color: #303134;
     border: 1px solid #303134;

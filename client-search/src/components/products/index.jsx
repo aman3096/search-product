@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import './index.css';
+import '../home/index.css';
  
 const Products = () => {
     const [searchParams] = useSearchParams();
@@ -37,7 +38,9 @@ const Products = () => {
 
   return (
       <div>
-        <input value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className="" />
+        <input value={searchTerm}
+        className="search-input"
+        onChange={(e)=>setSearchTerm(e.target.value)} />
         <button className="search-button" onClick={() => fetchProducts()}>Search</button>
         <div>Search Results for: "{searchTerm || '...'}"</div>
         {error && <p className="error">{error}</p>}
