@@ -76,6 +76,7 @@ const handleChange = (e) => {
                                 <img src={product.productimage} alt={product.productname} className="product-image" />
                                 <h2>{product.productname}</h2>
                                 <p>Category: {product.productcategory}</p>
+                                <p>Description: {product.productdescription}</p>
                                 <p>Price: ${product.rate}</p>
                             </div>
                         ))}

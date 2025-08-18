@@ -11,6 +11,20 @@
     padding: 0 0 0 20px;
     width: 668px;
 }
+@media screen and (max-width: 768px){
+    .search-input {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 0 0 16px;
+        min-height: 40px;
+    }
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
 .search-input:hover {
     background: #303134;
     box-shadow: 0 2px 8px 1px rgba(64,60,67,.24);
