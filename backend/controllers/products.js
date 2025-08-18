@@ -2,9 +2,9 @@ const db = require('../db/index');
 
 exports.getProducts = async(req, res, next)=> {
     try {
-        const { location, category, searchTerm } = req.body;
-        const result = await db.query(`SELECT * FROM products WHERE locationserved && $1 AND productcategory ILIKE $2 AND productname ILIKE $3 ORDER BY productname ASC`,
-            [[location], `%${category}%`, `%${searchTerm}%`]
+        const { searchTerm } = req.body;
+        const result = await db.query(`SELECT * FROM products WHERE productname ILIKE $1 ORDER BY productname ASC`,
+            [`%${searchTerm}%`]
         );
         const products = result.rows;
         if (products.length > 0) {
