@@ -15,7 +15,7 @@ const Home = () => {
     return (
         
         <React.Fragment>
-        <h1>Welcome to Styli eCommerce</h1>
+        <h1>Welcome to eCommerce</h1>
             <div className="card">
                 <input 
                     placeholder='Enter a product to search'
